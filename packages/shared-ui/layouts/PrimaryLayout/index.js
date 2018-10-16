@@ -1,11 +1,11 @@
+
 import React from 'react'
-import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 
-import Header from '../components/Header'
+import { Header } from '../../'
 import './index.css'
 
-const Layout = ({ children, data }) => (
+const PrimaryLayout = ({ children, data }) => (
   <div>
     <Helmet
       title={data.site.siteMetadata.title}
@@ -16,7 +16,7 @@ const Layout = ({ children, data }) => (
     >
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" />
     </Helmet>
-      <Header siteTitle={data.site.siteMetadata.title} />
+    <Header siteTitle={data.site.siteMetadata.title} />
     <div
       style={{
         fontfamily: 'Roboto',
@@ -31,18 +31,4 @@ const Layout = ({ children, data }) => (
   </div>
 )
 
-Layout.propTypes = {
-  children: PropTypes.func,
-}
-
-export default Layout
-
-export const query = graphql`
-  query SiteTitleQuery {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-  }
-`
+export default PrimaryLayout

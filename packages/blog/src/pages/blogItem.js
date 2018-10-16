@@ -1,6 +1,10 @@
 import React from 'react'
 import Link from 'gatsby-link'
-import Button from '../components/Button'
+import styled from 'styled-components'
+
+const StyledAnchor = styled.a`
+  display: block;
+`
 
 export default ({ pathContext: { data }}) => {
   if (!data) {
@@ -11,8 +15,8 @@ export default ({ pathContext: { data }}) => {
     <div>
       <h1>{data.title}</h1>
       <p>{data.content}</p>
-      <Button>Purchase</Button>
-      <Link to="/">Back to Shop</Link>
+      <StyledAnchor href={data.href}>Full article</StyledAnchor>
+      <Link to="/">Back to Blog</Link>
     </div>
   )
 }
